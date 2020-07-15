@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="UIprediction.jnlp">
+  <information>
+    <title>UIprediction</title>
+    <vendor>Unknown</vendor>
+    <description>UIprediction</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="UIprediction.jar" size="47326" download="eager" />
+    <jar href="bootstrap-2.3.2.jar" size="141332" download="eager" />
+    <jar href="commons-codec-1.9.jar" size="263965" download="eager" />
+    <jar href="font-awesome-4.1.0.jar" size="425534" download="eager" />
+    <jar href="jfoenix-8.0.8.jar" size="2708772" download="eager" />
+    <jar href="jquery-1.9.0.jar" size="115310" download="eager" />
+    <jar href="lombok-1.18.8.jar" size="1730973" download="eager" />
+    <jar href="poi-3.11.jar" size="2080419" download="eager" />
+    <jar href="poi-ooxml-3.11.jar" size="1210980" download="eager" />
+    <jar href="poi-ooxml-schemas-3.11.jar" size="5595829" download="eager" />
+    <jar href="stax-api-1.0.1.jar" size="26514" download="eager" />
+    <jar href="xmlbeans-2.6.0.jar" size="2730866" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="500" height="600" main-class="sample.Main"  name="UIprediction" />
+  <update check="background"/>
+</jnlp>

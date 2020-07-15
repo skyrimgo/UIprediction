@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.controlsfx.control.textfield.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#init" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: rgba(255,255,255,0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <AnchorPane fx:id="topbar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#drag" onMousePressed="#press" prefHeight="90.0" prefWidth="500.0" style="-fx-background-color: #3D4956; -fx-background-radius: 2.5em;">
+         <children>
+            <ImageView fx:id="image_set" fitHeight="32.0" fitWidth="32.0" layoutX="50.0" layoutY="30.0" onMousePressed="#handleMouseEvents" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/set.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image_user" fitHeight="32.0" fitWidth="32.0" layoutX="170.0" layoutY="30.0" onMousePressed="#handleMouseEvents" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image_stats" fitHeight="32.0" fitWidth="32.0" layoutX="290.0" layoutY="30.0" onMousePressed="#handleMouseEvents" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/stats.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image_power" fitHeight="32.0" fitWidth="32.0" layoutX="410.0" layoutY="30.0" onMousePressed="#exit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/power.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+        <AnchorPane fx:id="setPane" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #3D4956; -fx-background-radius: 2.5em;" visible="false">
+         <children>
+            <JFXSlider fx:id="gatimes" layoutX="240.0" layoutY="325.0" max="5.0" min="1.0" prefHeight="15.0" prefWidth="150.0" value="2.0" />
+            <Label layoutX="80.0" layoutY="320.0" text="神经网络层数" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="biprediction" focusTraversable="false" layoutX="240.0" layoutY="56.0" size="12.0" text="是否开启" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXToggleButton>
+            <Label layoutX="80.0" layoutY="80.0" text="双向预测" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="80.0" layoutY="160.0" text="粒子滤波" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="80.0" layoutY="238.0" text="均值滤波次数" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXSlider fx:id="avgfilter" layoutX="240.0" layoutY="245.0" max="5.0" min="1.0" prefHeight="15.0" prefWidth="150.0" value="2.0" />
+            <JFXToggleButton fx:id="psofilter" focusTraversable="false" layoutX="240.0" layoutY="136.0" size="12.0" text="是否开启" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXToggleButton>
+            <JFXButton layoutX="320.0" layoutY="410.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="80.0" ripplerFill="#a30202" style="-fx-background-color: #eda678; -fx-background-radius: 5em;" text="确认" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <ImageView fx:id="setPaneArrow" fitHeight="32.0" fitWidth="32.0" layoutX="49.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/arrow.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="94.0" layoutY="410.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#reset" prefHeight="36.0" prefWidth="80.0" ripplerFill="#a30202" style="-fx-background-color: #cccccc; -fx-background-radius: 5em;" text="取消" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children></AnchorPane>
+        <AnchorPane fx:id="userPane" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #3D4956; -fx-background-radius: 2.5em;" visible="false">
+         <children>
+            <ImageView fx:id="image_user_login" fitHeight="150.0" fitWidth="200.0" layoutX="175.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/user_login.png" />
+               </image>
+            </ImageView>
+            <JFXPasswordField fx:id="password" blendMode="GREEN" focusColor="WHITE" focusTraversable="false" layoutX="170.0" layoutY="265.0" prefHeight="41.0" prefWidth="160.0" unFocusColor="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXPasswordField>
+            <ImageView fx:id="userPaneArrow" fitHeight="32.0" fitWidth="32.0" layoutX="170.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/arrow.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="184.0" layoutY="348.0" onMousePressed="#ispasswordright" prefHeight="36.0" prefWidth="133.0" text="验证使用密码" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <ImageView fx:id="image_check" fitHeight="32.0" fitWidth="32.0" layoutX="235.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../resources/images/Check.png" />
+               </image></ImageView>
+         </children></AnchorPane>
+        <AnchorPane fx:id="statsPane" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #3D4956; -fx-background-radius: 2.5em;" visible="false">
+         <children>
+            <ImageView fx:id="statsPaneArrow" fitHeight="32.0" fitWidth="32.0" layoutX="289.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/arrow.png" />
+               </image>
+            </ImageView>
+            <LineChart fx:id="lineChart" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0" titleSide="BOTTOM">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" tickLabelFill="WHITE">
+                     <tickLabelFont>
+                        <Font size="20.0" />
+                     </tickLabelFont></CategoryAxis>
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" tickLabelFill="WHITE">
+                     <tickLabelFont>
+                        <Font size="20.0" />
+                     </tickLabelFont></NumberAxis>
+              </yAxis>
+            </LineChart>
+            <JFXButton blendMode="ADD" focusTraversable="false" layoutX="147.0" layoutY="305.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#drawChart" prefHeight="50.0" prefWidth="169.0" text="预测曲线生成" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton blendMode="ADD" focusTraversable="false" layoutX="147.0" layoutY="355.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#clearChart" prefHeight="50.0" prefWidth="169.0" text="预测曲线清除" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton blendMode="ADD" focusTraversable="false" layoutX="147.0" layoutY="403.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#excelGenerate" prefHeight="50.0" prefWidth="169.0" text="导出表格" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXSpinner fx:id="spin_generate" layoutX="322.0" layoutY="314.0" prefHeight="32.0" prefWidth="32.0" progress="0.0" />
+            <JFXSpinner fx:id="spin_clear" layoutX="322.0" layoutY="364.0" prefHeight="32.0" prefWidth="32.0" progress="0.0" />
+         </children></AnchorPane>
+    </children>
+</AnchorPane>
